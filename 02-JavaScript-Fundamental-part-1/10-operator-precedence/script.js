@@ -98,3 +98,10 @@ const ageJonas = now - 1991;
 const ageSarah = now - 2018;
 
 console.log(now - 1991 > now - 2018);
+
+let x, y;
+x = y = 20 - 10;
+console.log(x, y);
+
+const averageAge = (ageJonas + ageSarah) / 2;
+console.log(ageJonas, ageSarah, averageAge);
