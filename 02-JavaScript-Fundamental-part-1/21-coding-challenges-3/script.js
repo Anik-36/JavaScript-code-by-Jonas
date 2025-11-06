@@ -24,6 +24,25 @@ GOOD LUCK
 
 */
 
+// const dolphinAverage = (96 + 108 + 89) / 3;
+// const koalasAverage = (88 + 91 + 110) / 3;
+
+// // const dolphinAverage = (97 + 112 + 101) / 3;
+// // const koalasAverage = (109 + 95 + 123) / 3;
+
+// // const dolphinAverage = (97 + 112 + 101) / 3;
+// // const koalasAverage = (109 + 95 + 106) / 3;
+
+// console.log(dolphinAverage, koalasAverage);
+
+// if (dolphinAverage > koalasAverage) {
+//   console.log(`Dolphine is the winner`);
+// } else if (koalasAverage > dolphinAverage) {
+//   console.log(`Koalas is the winner`);
+// } else {
+//   console.log(`The result is draw`);
+// }
+
 const dolphinAverage = (96 + 108 + 89) / 3;
 const koalasAverage = (88 + 91 + 110) / 3;
 
@@ -35,10 +54,16 @@ const koalasAverage = (88 + 91 + 110) / 3;
 
 console.log(dolphinAverage, koalasAverage);
 
-if (dolphinAverage > koalasAverage) {
-  console.log(`Dolphine is the winner`);
-} else if (koalasAverage > dolphinAverage) {
-  console.log(`Koalas is the winner`);
+if (dolphinAverage > koalasAverage && dolphinAverage >= 100) {
+  console.log(`Dolphine is the winner 🏆`);
+} else if (koalasAverage > dolphinAverage && koalasAverage >= 100) {
+  console.log(`Koalas is the winner 🏆`);
+} else if (
+  dolphinAverage == koalasAverage &&
+  dolphinAverage >= 100 &&
+  koalasAverage >= 100
+) {
+  console.log(`They both win the trophy 🏆`);
 } else {
-  console.log(`The result is draw`);
+  console.log(`No one will win the trophy 😭`);
 }
