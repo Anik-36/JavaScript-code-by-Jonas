@@ -1,3 +1,8 @@
+/*
+in js , an array can hold different types of value in a same time.
+
+*/
+
 const friend1 = "Michel";
 const friend2 = "Jonas";
 const friend3 = "Levinho";
