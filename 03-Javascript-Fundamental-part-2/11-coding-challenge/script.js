@@ -24,3 +24,20 @@ GOOD LUCK
 �
 
 */
+
+function calcTip(bill) {
+  let tip;
+  if (bill >= 50 && bill <= 300) {
+    tip = bill * 0.15;
+  } else {
+    tip = bill * 0.2;
+  }
+  return tip;
+}
+
+const bill = [125, 555, 44];
+const tip = [calcTip(bill[0]), calcTip(bill[1]), calcTip(bill[2])];
+const total = [tip[0] + bill[0], tip[1] + bill[1], tip[2] + bill[2]];
+console.log(bill, tip);
+// console.log(tip);
+console.log(total);
