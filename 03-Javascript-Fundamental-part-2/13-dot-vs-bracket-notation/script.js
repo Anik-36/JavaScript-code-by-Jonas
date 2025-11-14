@@ -1,43 +1,46 @@
-/*
+const jonas = {
+  firstname: "Jonas",
+  lastname: "Schebsmann",
+  age: 2037 - 1991,
+  job: "teacher",
+  friends: ["Michel", "Jonas", "Levinho", "Seveu"],
+};
 
-Steven is still building his tip calculator, using the same rules as before: Tip 15% of
-the bill if the bill value is between 50 and 300, and if the value is different, the tip is
-20%.
-Your tasks:
-1. Write a function 'calcTip' that takes any bill value as an input and returns
-the corresponding tip, calculated based on the rules above (you can check out
-the code from first tip calculator challenge if you need to). Use the function
-type you like the most. Test the function using a bill value of 100
-2. And now let's use arrays! So create an array 'bills' containing the test data
-below
-3. Create an array 'tips' containing the tip value for each bill, calculated from
-the function you created before
-4. Bonus: Create an array 'total' containing the total values, so the bill + tip
-Test data: 125, 555 and 44
-�
-�
-Hint: Remember that an array needs a value in each position, and that value can
-actually be the returned value of a function! So you can just call a function as array
-values (so don't store the tip values in separate variables first, but right in the new
-array)
-GOOD LUCK
-�
+// dot notation
+console.log(jonas.lastname);
 
-*/
+// bracket notation
+console.log(jonas["lastname"]);
+// in bracket notation , we can give expression for calculate and generate the value. it is a literal template. in dot notation we need to use final property name , but can't use computed property name.
+// like
 
-function calcTip(bill) {
-  let tip;
-  if (bill >= 50 && bill <= 300) {
-    tip = bill * 0.15;
-  } else {
-    tip = bill * 0.2;
-  }
-  return tip;
+const nameKey = "name";
+
+console.log(jonas["first" + nameKey]);
+console.log(jonas["last" + nameKey]);
+
+// if we want to take input from user and want to find the value , we can't use dot notation. we need bracket notation
+
+const interestedIn = prompt(
+  "What do you want to know about Jonas? Choose between firstname,lastname,age, job, friends"
+);
+
+if (jonas[interestedIn]) {
+  console.log(jonas[interestedIn]);
+} else {
+  console.log(
+    "Wrong request. Choose between firstname,lastname,age, job, friends"
+  );
 }
 
-const bill = [125, 555, 44];
-const tip = [calcTip(bill[0]), calcTip(bill[1]), calcTip(bill[2])];
-const total = [tip[0] + bill[0], tip[1] + bill[1], tip[2] + bill[2]];
-console.log(bill, tip);
-// console.log(tip);
-console.log(total);
+// to add some value into object
+
+jonas.location = "Portugal";
+jonas["twitter"] = "@schedbamann";
+console.log(jonas);
+
+// Jonas has 3 freinds , and his best freind is Michel
+
+console.log(
+  `${jonas.firstname} has 3 friends, and his best friend is ${jonas.friends[0]}`
+);
