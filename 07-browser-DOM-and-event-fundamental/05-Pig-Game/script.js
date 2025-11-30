@@ -15,6 +15,14 @@ const btnHold = document.querySelector('.btn--hold');
 
 let currentScore = 0;
 let activePlayer = 0;
+const scores = [0, 0];
+const switchPlayer = function () {
+  document.getElementById(`current--${activePlayer}`).textContent = 0;
+  currentScore = 0;
+  activePlayer = activePlayer === 0 ? 1 : 0;
+  player0El.classList.toggle('player--active');
+  player1El.classList.toggle('player--active');
+};
 
 // starting condition
 score0El.textContent = 0;
@@ -38,10 +46,16 @@ btnRoll.addEventListener('click', function () {
       currentScore;
   } else {
     // Switch to next player
-    document.getElementById(`current--${activePlayer}`).textContent = 0;
-    currentScore = 0;
-    activePlayer = activePlayer === 0 ? 1 : 0;
-    player0El.classList.toggle('player--active');
-    player1El.classList.toggle('player--active');
+    switchPlayer();
   }
+});
+
+btnHold.addEventListener('click', function () {
+  // 1. Add current score to Total score
+  scores[activePlayer] += currentScore;
+  document.getElementById(`score--${activePlayer}`).textContent =
+    scores[activePlayer];
+  // 2. Check if it cross 100 or not
+  // 3. if not , switch to next player
+  switchPlayer();
 });
