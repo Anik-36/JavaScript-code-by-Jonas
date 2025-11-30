@@ -1,5 +1,7 @@
 'use strict';
 
+// const { act } = require('react');
+
 // selecting elements
 const score0El = document.querySelector('#score--0');
 const score1El = document.getElementById('score--1');
@@ -12,6 +14,7 @@ const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 
 let currentScore = 0;
+let activePlayer = 0;
 
 // starting condition
 score0El.textContent = 0;
@@ -31,8 +34,10 @@ btnRoll.addEventListener('click', function () {
   if (dice !== 1) {
     // 1. Add the number to current score
     currentScore += dice;
-    currentScore0El.textContent = currentScore;
+    document.getElementById(`current--${activePlayer}`).textContent =
+      currentScore;
   } else {
     // Switch to next player
+    activePlayer = activePlayer === 0 ? 1 : 0;
   }
 });
