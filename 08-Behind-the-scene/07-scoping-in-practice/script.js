@@ -8,3 +8,4 @@ function calcAge(birthYear) {
 
 let firstName = 'jonas';
 calcAge(1991);
+// learning hoisting
