@@ -1,11 +1,15 @@
 'use strict';
-function calcAge(birthYear) {
-  const age = 2037 - birthYear;
-  firstName = 'Steven';
-  console.log(firstName);
-  return age;
-}
+console.log(this);
 
-let firstName = 'jonas';
+const calcAge = function (year) {
+  console.log(2037 - year);
+  console.log(this);
+};
 calcAge(1991);
-// learning hoisting
+
+const calcAgeArrow = year => {
+  console.log(2037 - year);
+  console.log(this);
+};
+
+calcAgeArrow(1980);
