@@ -9,14 +9,21 @@ const jonas = {
     console.log(this);
     console.log(2037 - this.year);
 
+    // Solution 1
     // inside a method if a function called , this should be undefined. bcz it seems like it is outside.
-    const self = this;
+    // const self = this;
+    // const isMillenial = function () {
+    //   console.log(self);
+    //   console.log(self.year >= 1981 && self.year <= 1996);
+    // };
 
-    const isMillenial = function () {
-      console.log(self);
-      console.log(self.year >= 1981 && self.year <= 1996);
-      // console.log(this.year >= 1981 && this.year <= 1996);
+    // Solution 2
+    // an arrow function use this keyword from its parrent scope, but in regular function this keyword will be undefined. so arrow takes this from the calcAge function this as its own.
+    const isMillenial = () => {
+      console.log(this);
+      console.log(this.year >= 1981 && this.year <= 1996);
     };
+
     isMillenial();
   },
 
