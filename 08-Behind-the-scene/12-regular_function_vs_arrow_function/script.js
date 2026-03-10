@@ -36,3 +36,18 @@ const jonas = {
 jonas.calcAge();
 
 // jonas.greet();
+
+// arguments keyword . only regular function have
+const addExp = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+
+addExp(2, 3, 5, 6, 7);
+
+// arrow function dont have
+const addArr = () => {
+  console.log(arguments);
+  return a + b;
+};
+addArr(2, 3);
