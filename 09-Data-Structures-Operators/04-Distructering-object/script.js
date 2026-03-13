@@ -49,8 +49,8 @@ const restaurant = {
   },
 };
 
-// const { name, openingHours, categories } = restaurant;
-// console.log(name, openingHours, categories);
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
 
 const {
   name: restaurantName,
@@ -58,3 +58,32 @@ const {
   categories: tag,
 } = restaurant;
 console.log(restaurantName, hours, tag);
+
+// if we dont have the properties in the object but we want to extract , it gives the undefined  values. to remove this occurance we set ' = []' as defult that doesnt give any undefined value.
+
+// default value set
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+// Mutating variable
+let a = 111;
+let b = 999;
+const obj = { a: 7, b: 2, c: 4 };
+({ a, b } = obj);
+console.log(a, b);
+
+// Nested distructuring
+const {
+  fri: { open: o, close: c },
+} = openingHours;
+console.log(o, c);
+
+// get by raw way
+// const {
+//   openingHours: {
+//     fri: { open: o, close: c },
+//   },
+// } = restaurant;
+// console.log(o, c);
+
+// 12:52 till
