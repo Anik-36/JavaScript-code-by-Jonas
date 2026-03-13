@@ -49,40 +49,12 @@ const restaurant = {
   },
 };
 
-const arr = [4, 6, 7];
-const a = arr[0];
-const b = arr[1];
-const c = arr[2];
+// const { name, openingHours, categories } = restaurant;
+// console.log(name, openingHours, categories);
 
-// we use [] for distructuring arrays
-
-const [x, y, z] = arr;
-console.log(x, y, z);
-
-let [main, , secondary] = restaurant.categories;
-console.log(main, secondary);
-
-// Switching values
-// const temp = main;
-// main = secondary;
-// secondary = temp;
-// console.log(main, secondary);
-
-[main, secondary] = [secondary, main];
-console.log(main, secondary);
-
-// Receive 2 return value from a function
-const [starter, mainCourse] = restaurant.order(2, 0);
-console.log(starter, mainCourse);
-
-// nested distructuring
-const nested = [2, 4, [5, 6]];
-// const [i, , j] = nested;
-// console.log(i, j);
-
-const [i, , [j, k]] = nested;
-console.log(i, j, k);
-
-// if we dont know the size of the array , we will set defult value to 1 for not showing undefined
-const [p = 1, q = 1, r = 1] = [8, 9];
-console.log(p, q, r);
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tag,
+} = restaurant;
+console.log(restaurantName, hours, tag);
