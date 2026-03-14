@@ -59,53 +59,6 @@ const restaurant = {
   },
 };
 
-restaurant.orderDelivery({
-  time: '22:30',
-  address: 'Via Del Sol, 21',
-  starterIndex: 2,
-  mainIndex: 2,
-});
-
-restaurant.orderDelivery({
-  address: 'Via Del Sol, 21',
-  mainIndex: 1,
-});
-
-// for Distructuring object we use  { }
-
-const { name, openingHours, categories } = restaurant;
-console.log(name, openingHours, categories);
-
-const {
-  name: restaurantName,
-  openingHours: hours,
-  categories: tag,
-} = restaurant;
-console.log(restaurantName, hours, tag);
-
-// if we dont have the properties in the object but we want to extract , it gives the undefined  values. to remove this occurance we set ' = []' as defult that doesnt give any undefined value.
-
-// default value set
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters);
-
-// Mutating variable
-let a = 111;
-let b = 999;
-const obj = { a: 7, b: 2, c: 4 };
-({ a, b } = obj);
-console.log(a, b);
-
-// Nested distructuring
-const {
-  fri: { open: o, close: c },
-} = openingHours;
-console.log(o, c);
-
-// get by raw way
-// const {
-//   openingHours: {
-//     fri: { open: o, close: c },
-//   },
-// } = restaurant;
-// console.log(o, c);
+const arr = [7, 8, 9];
+const newBadArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(newBadArr);
