@@ -62,3 +62,16 @@ const restaurant = {
 const arr = [7, 8, 9];
 const newBadArr = [1, 2, arr[0], arr[1], arr[2]];
 console.log(newBadArr);
+
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocchi'];
+console.log(newMenu);
+
+// Copy array
+const mainMenyCopy = [...restaurant.mainMenu];
+
+// Join 2 arrays
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
