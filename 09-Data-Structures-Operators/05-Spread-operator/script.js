@@ -57,6 +57,12 @@ const restaurant = {
       `Order is received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time} `,
     );
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious Pasta with ${ing1}, ${ing2} and ${ing3}`,
+    );
+  },
 };
 
 const arr = [7, 8, 9];
@@ -75,3 +81,17 @@ const mainMenyCopy = [...restaurant.mainMenu];
 // Join 2 arrays
 const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
 console.log(menu);
+
+// iterable : arrays, string , maps, sets. Not objects
+
+const str = 'Jonas';
+const letter = [...str, ' ', 'S.'];
+console.log(letter);
+
+const ingrediants = [
+  prompt("Let's make pasta ! with Ingrediants 1 ?"),
+  prompt('Ingrediants 2 ?'),
+  prompt('Ingrediants 3 ?'),
+];
+
+restaurant.orderPasta(...ingrediants);
