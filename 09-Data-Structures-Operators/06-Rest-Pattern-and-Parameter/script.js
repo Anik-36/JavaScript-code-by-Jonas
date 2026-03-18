@@ -65,49 +65,57 @@ const restaurant = {
   },
 };
 
-const arr = [7, 8, 9];
-const newBadArr = [1, 2, arr[0], arr[1], arr[2]];
-console.log(newBadArr);
+// SPREAD because of RIGHT side of =
+const arr = [1, 2, ...[3, 4]];
+console.log(arr);
 
-const newArr = [1, 2, ...arr];
-console.log(newArr);
+// REST because of LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
 
-const newMenu = [...restaurant.mainMenu, 'Gnocchi'];
-console.log(newMenu);
+// const arr = [7, 8, 9];
+// const newBadArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(newBadArr);
 
-// Copy array
-const mainMenyCopy = [...restaurant.mainMenu];
+// const newArr = [1, 2, ...arr];
+// console.log(newArr);
 
-// Join 2 arrays
-const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(menu);
+// const newMenu = [...restaurant.mainMenu, 'Gnocchi'];
+// console.log(newMenu);
 
-// iterable : arrays, string , maps, sets. Not objects
+// // Copy array
+// const mainMenyCopy = [...restaurant.mainMenu];
 
-const str = 'Jonas';
-const letter = [...str, ' ', 'S.'];
-console.log(letter);
+// // Join 2 arrays
+// const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(menu);
 
-// Real life example
-const ingrediants = [
-  // prompt("Let's make pasta ! with Ingrediants 1 ?"),
-  // prompt('Ingrediants 2 ?'),
-  // prompt('Ingrediants 3 ?'),
-];
+// // iterable : arrays, string , maps, sets. Not objects
 
-restaurant.orderPasta(ingrediants[0], ingrediants[1], ingrediants[2]);
-restaurant.orderPasta(...ingrediants);
+// const str = 'Jonas';
+// const letter = [...str, ' ', 'S.'];
+// console.log(letter);
 
-// Spreading objects
+// // Real life example
+// const ingrediants = [
+//   // prompt("Let's make pasta ! with Ingrediants 1 ?"),
+//   // prompt('Ingrediants 2 ?'),
+//   // prompt('Ingrediants 3 ?'),
+// ];
 
-const newResturaunt = {
-  foundIn: 1991,
-  ...restaurant,
-  founder: 'Anisur Rahman Anik',
-};
-console.log(newResturaunt);
+// restaurant.orderPasta(ingrediants[0], ingrediants[1], ingrediants[2]);
+// restaurant.orderPasta(...ingrediants);
 
-const restaurantCopy = { ...restaurant };
-restaurantCopy.name = 'Resturaina Roma';
-console.log(restaurant.name);
-console.log(restaurantCopy.name);
+// // Spreading objects
+
+// const newResturaunt = {
+//   foundIn: 1991,
+//   ...restaurant,
+//   founder: 'Anisur Rahman Anik',
+// };
+// console.log(newResturaunt);
+
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.name = 'Resturaina Roma';
+// console.log(restaurant.name);
+// console.log(restaurantCopy.name);
