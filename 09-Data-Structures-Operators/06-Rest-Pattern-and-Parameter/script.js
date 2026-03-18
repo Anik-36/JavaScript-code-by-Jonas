@@ -63,7 +63,21 @@ const restaurant = {
       `Here is your delicious Pasta with ${ing1}, ${ing2} and ${ing3}`,
     );
   },
+
+  orderPizza: function (mainIngredients, ...otherIngredients) {
+    console.log(mainIngredients);
+    console.log(otherIngredients);
+  },
 };
+
+/**********************************************************
+ * ***************************************************
+ * Rest operator is used where the vairable separated by commas and spead operator is used where the values are seprated by commas
+ * ***********************************************************
+ * *************************************************************
+ */
+
+// Destructuring
 
 // SPREAD because of RIGHT side of =
 const arr = [1, 2, ...[3, 4]];
@@ -73,6 +87,35 @@ console.log(arr);
 const [a, b, ...others] = [1, 2, 3, 4, 5];
 console.log(a, b, others);
 
+const [pizza, , resotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+
+console.log(pizza, resotto, otherFood);
+
+const { sat, ...weekDays } = restaurant.openingHours;
+console.log(weekDays);
+
+// function
+
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+
+add(2, 3);
+add(4, 2, 5, 6);
+add(2, 9, 7, 2, 7, 6);
+
+const x = [23, 5, 7];
+add(...x);
+
+restaurant.orderPizza('mushroom', 'onion', 'olive', 'meat');
+restaurant.orderPizza('mushroom');
 // const arr = [7, 8, 9];
 // const newBadArr = [1, 2, arr[0], arr[1], arr[2]];
 // console.log(newBadArr);
