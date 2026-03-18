@@ -70,16 +70,12 @@ const restaurant = {
   },
 };
 
-console.log(3 || 'Jonas');
+restaurant.numGuest = 0;
+const guest = restaurant.numGuest || 10;
+console.log(guest);
 
-const guest1 = restaurant.numGuest ? restaurant.numGuest : 10;
-console.log(guest1);
+// NULLISH : null and undefined ( NOT 0 and '')
+// though 0 is not a nullish value so it will be evaluated and not go to next value.
 
-const guest2 = restaurant.numGuest || 10;
-console.log(guest2);
-
-if (restaurant.orderPizza) {
-  restaurant.orderPizza('mashroom', 'spinach', 'onion');
-}
-
-restaurant.orderPizza && restaurant.orderPizza('mashroom', 'onion');
+const guestCorrect = restaurant.numGuest ?? 10;
+console.log(guestCorrect);
