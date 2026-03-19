@@ -70,19 +70,34 @@ const restaurant = {
   },
 };
 
-/*
- *********************************************
- * and operator gives the last or falsy value
- * or operator give the first or truthy value
- * ******************************************
- */
+const rest1 = {
+  name: 'Capri',
+  // numGuests: 20,
+  numGuests: 0,
+};
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
 
-restaurant.numGuest = 0;
-const guest = restaurant.numGuest || 10;
-console.log(guest);
+// OR assignment operator
+// rest1.numGuests = rest1.numGuests || 10
+// rest2.numGuests = rest2.numGuests || 10
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
 
-// NULLISH : null and undefined ( NOT 0 and '')
-// though 0 is not a nullish value so it will be evaluated and not go to next value.
+// NULLISH assignment operator (null or undefined)
+// rest1.numGuests = rest1.numGuests ?? 10
+// rest2.numGuests = rest2.numGuests ?? 10
+// rest1.numGuests ??= 10;
+// rest2.numGuests ??= 10;
 
-const guestCorrect = restaurant.numGuest ?? 10;
-console.log(guestCorrect);
+// AND assignment operator
+// works when the value is truthy then it can replace , otherwise it can't.
+// rest1.owner = rest1.owner && 'ANONYMOUS';
+// rest2.owner = rest2.owner && 'ANONYMOUS';
+rest1.owner &&= 'ANONYMOUS';
+rest2.owner &&= 'ANONYMOUS';
+
+console.log(rest1);
+console.log(rest2);
