@@ -66,3 +66,10 @@ const game = {
     team2: 6.5,
   },
 };
+
+const goalScorer = game.scored;
+
+// console.log(goalScorer);
+for (const [goal, name] of goalScorer.entries()) {
+  console.log(`Goal ${goal + 1} : ${name}`);
+}
