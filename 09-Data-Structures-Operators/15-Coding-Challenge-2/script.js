@@ -73,3 +73,14 @@ const goalScorer = game.scored;
 for (const [goal, name] of goalScorer.entries()) {
   console.log(`Goal ${goal + 1} : ${name}`);
 }
+
+let totalValue = 0;
+for (const values of Object.values(game.odds)) {
+  totalValue += values;
+}
+
+console.log(totalValue / 3);
+
+for (const [keys, values] of Object.entries(game.odds)) {
+  console.log(`Odd of victory ${game[keys]} : ${values}`);
+}
