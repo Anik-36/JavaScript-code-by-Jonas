@@ -81,6 +81,13 @@ for (const values of Object.values(game.odds)) {
 
 console.log(totalValue / 3);
 
-for (const [keys, values] of Object.entries(game.odds)) {
-  console.log(`Odd of victory ${game[keys]} : ${values}`);
+for (const [team, values] of Object.entries(game.odds)) {
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr} : ${values}`);
 }
+
+/*
+Odd of victory Bayern Munich: 1.33
+Odd of draw: 3.25
+Odd of victory Borrussia Dortmund: 6.5
+*/
