@@ -33,3 +33,19 @@ const gameEvents = new Map([
   [80, '⚽ GOAL'],
   [92, '🔶 Yellow card'],
 ]);
+
+const events = new Set([...gameEvents.values()]);
+console.log(events);
+
+gameEvents.delete(64);
+console.log(gameEvents);
+
+for (const [key, value] of gameEvents) {
+  if (key <= 45) {
+    console.log(`[FIRST HALF] ${key}:
+            ${value}`);
+  } else {
+    console.log(`[SECOND HALF] ${key}:
+            ${value}`);
+  }
+}
