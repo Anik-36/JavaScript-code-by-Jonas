@@ -88,3 +88,28 @@ console.log(airLine.indexOf('Portugal'));
 // Slice method's paremeter takes the staring index from which before it slice and end index from which before it end
 console.log(airLine.slice(4));
 console.log(airLine.slice(4, 7));
+
+console.log(airLine.slice(0, airLine.indexOf(' ')));
+console.log(airLine.slice(airLine.lastIndexOf(' ') + 1));
+
+console.log(airLine.slice(-2));
+console.log(airLine.slice(1, -1));
+
+const checkMiddleSeat = function (seat) {
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') {
+    console.log("You'v got the middle seat");
+  } else {
+    console.log('You are Lucky ');
+  }
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+// when string takes a method it turns into object . and then when it give the value it get back to string again.
+console.log(new String('jonas'));
+console.log(typeof new String('jonas')); // object
+
+console.log(typeof new String('jonas').slice(1)); // string
