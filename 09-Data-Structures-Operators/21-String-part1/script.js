@@ -74,3 +74,17 @@ const airLine = 'TAP Air Portugal';
 const plane = 'A320';
 
 console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B382'[0]);
+
+console.log(airLine.length);
+console.log('G352'.length);
+
+console.log(airLine.indexOf('r'));
+console.log(airLine.lastIndexOf('r'));
+console.log(airLine.indexOf('Portugal'));
+
+// Slice method's paremeter takes the staring index from which before it slice and end index from which before it end
+console.log(airLine.slice(4));
+console.log(airLine.slice(4, 7));
