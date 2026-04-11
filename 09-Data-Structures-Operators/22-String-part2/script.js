@@ -105,4 +105,15 @@ console.log(priceUS);
 const annoucement = 'All passenger come to boarding door 23. Boarding door 23';
 // console.log(annoucement.replace('door', 'gate')); // it replace only the first value not all values
 
+// console.log(annoucement.replace(/door/g, 'gate'));
 console.log(annoucement.replaceAll('door', 'gate'));
+
+// Boolean
+const plan = 'Airbus A320neo';
+console.log(plan.includes('A320'));
+console.log(plan.includes('booing'));
+console.log(plan.startsWith('Airb'));
+
+if (plan.startsWith('Airbus') && plan.endsWith('neo')) {
+  console.log('Part of this new AirBus family');
+}
