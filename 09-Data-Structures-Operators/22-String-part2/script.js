@@ -83,3 +83,26 @@ const passengerLower = passenger.toLowerCase();
 const passengerCorrect =
   passengerLower[0].toUpperCase() + passengerLower.slice(1);
 console.log(passengerCorrect);
+
+// Comparing Email
+
+const email = 'hello@jonas.io';
+const login = '   Hello@Jonas.Io';
+
+// const lowerEmail = login.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+
+const normalizedEmail = login.toLowerCase().trim();
+console.log(normalizedEmail);
+console.log(email === normalizedEmail);
+
+// Replacing
+
+const priceGB = '288,97£';
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceUS);
+
+const annoucement = 'All passenger come to boarding door 23. Boarding door 23';
+// console.log(annoucement.replace('door', 'gate')); // it replace only the first value not all values
+
+console.log(annoucement.replaceAll('door', 'gate'));
