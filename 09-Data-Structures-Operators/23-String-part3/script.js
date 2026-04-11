@@ -109,3 +109,15 @@ const maskCredit = function (number) {
 console.log(maskCredit(38475050));
 console.log(maskCredit(3847438203489238));
 console.log(maskCredit('3928348992578257982'));
+
+// Repeat
+
+const message2 = 'Bad weather.... All Departures delayed.... ';
+console.log(message2.repeat(5));
+
+const planeInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`);
+};
+planeInLine(4);
+planeInLine(6);
+planeInLine(15);
