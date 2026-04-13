@@ -32,3 +32,26 @@ GOOD LUCK 😀
 
 document.body.append(document.createElement("textarea"));
 document.body.append(document.createElement("button"));
+
+document.querySelector("button").addEventListener("click", function () {
+  const text = document.querySelector("textarea").value;
+  const rows = text.split("\n");
+  for (const [i, row] of rows.entries()) {
+    const output = row.trim().toLowerCase();
+    const [first, second] = output.split("_");
+    console.log(
+      `${first}${second.replace(second[0], second[0].toUpperCase())}`.padEnd(
+        20,
+        " ",
+      ) + `${"✅".repeat(i + 1)}`,
+    );
+  }
+});
+
+/*
+underscore_case
+ first_name
+Some_Variable
+  calculate_AGE
+delayed_departure
+*/
