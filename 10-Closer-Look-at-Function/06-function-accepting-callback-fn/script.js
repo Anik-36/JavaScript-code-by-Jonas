@@ -19,3 +19,10 @@ const transformer = function (str, fn) {
 
 transformer('JavaScript is the best!', upperFirstWord);
 transformer('JavaScript is the best!', oneWord);
+
+// Js uses callback all the time
+const hi5 = function () {
+  console.log('🔴');
+};
+
+document.body.addEventListener('click', hi5);
