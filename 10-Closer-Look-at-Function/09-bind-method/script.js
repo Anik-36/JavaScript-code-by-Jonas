@@ -61,3 +61,19 @@ bookEW(233, 'Martha Zayrados');
 
 const bookEW23 = book.bind(eurowings, 23);
 bookEW23('Anisur Rahman Anik');
+
+// With event Listener
+
+lufthansa.plane = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+
+  this.plane++;
+
+  console.log(this.plane);
+};
+
+// addEventListener function call a function and that 'this' keyword defines the element that eventHandler function attached with, not the object or other things. that's why it gives the element not the function value. so though we need the a function in the eventListener function we can't use call function because call method call's the function not give the function , so we use the bind method, because it returns a function
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
