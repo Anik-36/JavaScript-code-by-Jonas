@@ -101,3 +101,5 @@ const addVAT2 = rate => value => value + value * rate;
 const addTAX2 = addVAT2(0.1);
 console.log(addTAX2(200));
 console.log(addVAT2(0.23)(23));
+
+
