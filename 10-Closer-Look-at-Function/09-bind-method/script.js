@@ -77,3 +77,27 @@ lufthansa.buyPlane = function () {
 document
   .querySelector('.buy')
   .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+// Partail Application
+
+const addVAT = (rate, value) => value + value * rate;
+
+// thoug the function is not in any object so we give the value to null for object
+const addTAX = addVAT.bind(null, 0.23);
+console.log(addTAX(100));
+console.log(addTAX(23));
+
+const addTaxRate = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+
+const addTAx2 = addTaxRate(10);
+console.log(addTAx2(100));
+
+const addVAT2 = rate => value => value + value * rate;
+
+const addTAX2 = addVAT2(0.1);
+console.log(addTAX2(200));
+console.log(addVAT2(0.23)(23));
