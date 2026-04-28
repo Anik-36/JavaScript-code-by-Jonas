@@ -44,8 +44,6 @@ const poll = {
         2: Rust
         3: C++
         (Write option number)`);
-    console.log(typeof Number(num));
-    console.log(num);
 
     while (!(num >= 0 && num <= 3) || num == '' || num == ' ')
       num = prompt(
@@ -58,7 +56,23 @@ const poll = {
         (Write option number)
         `,
       );
+    console.log(typeof Number(num));
+    console.log(num);
+    this.answers[num]++;
+    console.log(this.answers[num]);
+
+    const type = prompt(`Select the type you want to get the answer formate :
+      1. array
+      2. string`);
+    const displayResults = function (type) {
+      if (type === '1') {
+      }
+    };
+    displayResults(type);
   },
 };
 
-poll.registerNewAnswer();
+// poll.registerNewAnswer();
+document
+  .querySelector('.poll')
+  .addEventListener('click', poll.registerNewAnswer.bind(poll));
