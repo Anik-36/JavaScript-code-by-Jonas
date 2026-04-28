@@ -24,7 +24,7 @@ Here are your tasks:
 
 HINT: Use many of the tools you learned about in this and the last section 😉
 
-BONUS: Use the 'displayResults' method to display the 2 arrays in the test data. Use both the 'array' and the 'string' option. Do NOT put the arrays in the poll object! So what shoud the this keyword look like in this situation?
+BONUS: Use the 'displayResults' method to display the 2 arrays in the test data. Use both the 'array' and the 'string' option. Do NOT put the arrays in the poll object! So what should the this keyword look like in this situation?
 
 BONUS TEST DATA 1: [5, 2, 3]
 BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
@@ -38,42 +38,48 @@ const poll = {
   // This generates [0, 0, 0, 0]. More in the next section 😃
   answers: new Array(4).fill(0),
   registerNewAnswer() {
-    let num = prompt(`What is your favourite programming language?
-        0: JavaScript
-        1: Python
-        2: Rust
-        3: C++
-        (Write option number)`);
+    let num = Number(
+      prompt(
+        `${this.question}\n${this.options.join('\n')}\n(Write option number)`,
+      ),
+    );
 
-    while (!(num >= 0 && num <= 3) || num == '' || num == ' ')
-      num = prompt(
-        `Sorry, You did a wrong stuff. Please enter a number between (0-3)
-        What is your favourite programming language?
-        0: JavaScript
-        1: Python
-        2: Rust
-        3: C++
-        (Write option number)
-        `,
-      );
+    // while (!(num >= 0 && num <= 3) || num == '' || num == ' ')
+    //   num = prompt(
+    //     `Sorry, You did a wrong stuff. Please enter a number between (0-3)
+    //     What is your favourite programming language?
+    //     0: JavaScript
+    //     1: Python
+    //     2: Rust
+    //     3: C++
+    //     (Write option number)
+    //     `,
+    //   );
+
+    typeof num === 'number' && num < this.answers.length && this.answers[num]++;
+
     // console.log(typeof Number(num));
     // console.log(num);
-    this.answers[num]++;
+    // this.answers[num]++;
     // console.log(this.answers[num]);
 
-    const type = prompt(`Select the type you want to get the answer formate :
-      1. array
-      2. string`);
-    const self = this;
-    const displayResults = function (type) {
-      if (type === '1') {
-        console.log(...self.answers);
-      } else {
-        [w, x, y, z] = [...self.answers];
-        console.log(`Poll results are ${w}, ${x}, ${y}, ${z}`);
-      }
-    };
-    displayResults(type);
+    // const type = prompt(`Select the type you want to get the answer formate :
+    //   1. array
+    //   2. string`);
+    // const self = this;
+
+    this.displayResults();
+    this.displayResults('string');
+    this.displayResults('array');
+  },
+  displayResults: function (type = 'array') {
+    if (type === 'array') {
+      console.log(...this.answers);
+    } else if (type === 'string') {
+      [w, x, y, z] = [...this.answers];
+      // console.log(`Poll results are ${w}, ${x}, ${y}, ${z}`);
+      console.log(`Poll results are ${this.answers.join(', ')}`);
+    }
   },
 };
 
@@ -81,3 +87,8 @@ const poll = {
 document
   .querySelector('.poll')
   .addEventListener('click', poll.registerNewAnswer.bind(poll));
+
+poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
+
+//   [5, 2, 3]
+//  [1, 5, 3, 9, 6, 1]
