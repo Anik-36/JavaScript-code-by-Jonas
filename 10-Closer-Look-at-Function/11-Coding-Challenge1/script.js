@@ -56,16 +56,21 @@ const poll = {
         (Write option number)
         `,
       );
-    console.log(typeof Number(num));
-    console.log(num);
+    // console.log(typeof Number(num));
+    // console.log(num);
     this.answers[num]++;
-    console.log(this.answers[num]);
+    // console.log(this.answers[num]);
 
     const type = prompt(`Select the type you want to get the answer formate :
       1. array
       2. string`);
+    const self = this;
     const displayResults = function (type) {
       if (type === '1') {
+        console.log(...self.answers);
+      } else {
+        [w, x, y, z] = [...self.answers];
+        console.log(`Poll results are ${w}, ${x}, ${y}, ${z}`);
       }
     };
     displayResults(type);
