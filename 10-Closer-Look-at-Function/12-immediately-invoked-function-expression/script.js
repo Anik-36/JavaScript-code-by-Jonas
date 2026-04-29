@@ -3,7 +3,7 @@ const runOnce = function () {
 };
 runOnce();
 
-// IIFE = Immediately Invoked Function Expression
+// IIFE = Immediately Invoked Function Expression. When we need to not redeclare a function for more than one time we can use iife .
 
 // create a expression not statement
 (function () {
