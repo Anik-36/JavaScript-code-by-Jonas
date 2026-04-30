@@ -1,23 +1,14 @@
-const runOnce = function () {
-  console.log('This will run once');
+const secureBooking = function () {
+  let passengerCount = 0;
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
 };
-runOnce();
 
-// IIFE = Immediately Invoked Function Expression. When we need to not redeclare a function for more than one time we can use iife .`
+const booker = secureBooking();
+booker();
+booker();
+booker();
 
-// create a expression not statement
-(function () {
-  console.log('This will never run again');
-  const isPrivate = 23;
-})();
-
-// console.log(isPrivate);
-
-(() => console.log('This will never run Once again'))();
-
-{
-  const isPrivate = 23;
-  var notPrivate = 44;
-}
-// console.log(isPrivate);
-console.log(notPrivate);
+// Closure is a concept that makes the connection between function and its birthplace execution context. so the function can use all the variable of its parent scope. and it is much priorities than scope chain. let say passengerCount = 10 in the global scope. but it will defined as 0 because of closure . cause it has more priority.
