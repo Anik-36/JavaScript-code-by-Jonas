@@ -76,7 +76,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 /////////////////////////////////////////////////
 
 // SLICE method -> doesn't mutate the original array
-const arr = ["a", "b", "c", "d", "e"];
+let arr = ["a", "b", "c", "d", "e"];
 
 console.log(arr.slice(1));
 console.log(arr.slice(1, 4));
@@ -91,3 +91,20 @@ console.log([...arr]);
 // console.log(arr.splice(1, 3));
 console.log(arr.splice(-1));
 console.log(arr);
+
+// REVERSE method -> mutate the original array
+
+arr = ["a", "b", "c", "d", "e"];
+const arr2 = ["j", "i", "h", "g", "f"];
+console.log(arr2.reverse());
+console.log(arr2);
+
+// CONCAT method -> not mutate
+
+const letter = arr.concat(arr2);
+console.log(letter);
+console.log([...arr, ...arr2]);
+
+// JOIN method
+
+console.log(letter.join(" - "));
