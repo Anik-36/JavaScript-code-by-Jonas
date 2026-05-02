@@ -103,6 +103,7 @@ console.log(arr2);
 
 const letter = arr.concat(arr2);
 console.log(letter);
+
 console.log([...arr, ...arr2]);
 
 // JOIN method
