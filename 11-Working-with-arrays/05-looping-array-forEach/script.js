@@ -77,19 +77,21 @@ const currencies = new Map([
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-for (const movement of movements) {
+// for (const movement of movements) {
+for (const [i, movement] of movements.entries()) {
   if (movement > 0) {
-    console.log(`Your deposited ${movement}`);
+    console.log(`Movement ${i + 1} : Your deposited ${movement}`);
   } else {
-    console.log(`Youe withdrew ${Math.abs(movement)}`);
+    console.log(`Movement ${i + 1} : Your withdrew ${Math.abs(movement)}`);
   }
 }
 
 console.log("------ forEach loop -------");
-movements.forEach(function (movement) {
+// forEach always can take 3 argument in its lowerorder function, the sequence must follow, 1st one is value, then index, than the whole array
+movements.forEach(function (movement, i, array) {
   if (movement > 0) {
-    console.log(`Your deposited ${movement}`);
+    console.log(`Movement ${i + 1} : Your deposited ${movement}`);
   } else {
-    console.log(`Youe withdrew ${Math.abs(movement)}`);
+    console.log(`Movement ${i + 1} : Your withdrew ${Math.abs(movement)}`);
   }
 });
