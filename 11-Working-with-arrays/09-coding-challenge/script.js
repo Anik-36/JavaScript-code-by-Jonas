@@ -83,17 +83,12 @@ GOOD LUCK 😀
 */
 
 const checkDogs = function (dogJulia, dogKate) {
-  let dogJuliaCopy = dogJulia;
-  dogJuliaCopy.splice(3, 4);
+  const dogJuliaCopy = dogJulia;
+  dogJuliaCopy.splice(-2);
   dogJuliaCopy.splice(0, 1);
-  dogJuliaCopy.forEach(function (val, i) {
-    if (val >= 3)
-      console.log(`Dog number ${i + 1} is an adult, and is ${val} years old`);
-    else {
-      console.log(`Dog number ${i + 1} is still a puppy 🐶`);
-    }
-  });
-  dogKate.forEach(function (val, i) {
+  const dog = dogJuliaCopy.concat(dogKate);
+  // console.log(dog);
+  dog.forEach(function (val, i) {
     if (val >= 3)
       console.log(`Dog number ${i + 1} is an adult, and is ${val} years old`);
     else {
