@@ -63,6 +63,8 @@ const inputClosePin = document.querySelector(".form__input--pin");
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+// Map returns values and create a new array with that values
+
 const eurToUsd = 1.1;
 const movementsUSD = movements.map(function (mov) {
   return mov * eurToUsd;
