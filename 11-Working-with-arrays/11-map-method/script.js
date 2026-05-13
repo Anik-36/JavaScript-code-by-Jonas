@@ -79,3 +79,10 @@ console.log(movementsUSDfor);
 const movementsUSDarrow = movements.map((mov) => mov * eurToUsd);
 
 console.log(movementsUSDarrow);
+
+const movementDescription = movements.map(
+  (mov, i, arr) =>
+    `Movement ${i + 1} : Your ${mov > 0 ? "deposited" : "withdrew"} ${Math.abs(mov)}`,
+);
+
+console.log(movementDescription);
