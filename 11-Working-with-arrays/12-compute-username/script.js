@@ -61,28 +61,18 @@ const inputLoanAmount = document.querySelector(".form__input--loan-amount");
 const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const eurToUsd = 1.1;
-const movementsUSD = movements.map(function (mov) {
-  return mov * eurToUsd;
-});
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.userName = acc.owner
+      .toLowerCase()
+      .split(" ")
+      .map((name) => name[0])
+      .join("");
+  });
+};
 
-console.log(movements);
-console.log(movementsUSD);
+createUsernames(accounts);
 
-const movementsUSDfor = [];
-for (const mov of movements) movementsUSDfor.push(mov * eurToUsd);
-
-console.log(movementsUSDfor);
-
-const movementsUSDarrow = movements.map((mov) => mov * eurToUsd);
-
-console.log(movementsUSDarrow);
-
-const movementDescription = movements.map(
-  (mov, i, arr) =>
-    `Movement ${i + 1} : Your ${mov > 0 ? "deposited" : "withdrew"} ${Math.abs(mov)}`,
-);
-
-console.log(movementDescription);
+console.log(accounts);
