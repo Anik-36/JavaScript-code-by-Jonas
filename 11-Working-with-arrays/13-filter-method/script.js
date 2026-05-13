@@ -65,7 +65,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // Filter method return the value you filtered with the condition. if the condition is true then it makes an array with the true values.
 
-const deposite = movements.filter(function (mov) {
+const deposite = movements.filter(function (mov, i, arr) {
   return mov > 0;
 });
 
@@ -76,8 +76,6 @@ for (const mov of movements) if (mov > 0) depositeFor.push(mov);
 
 console.log(depositeFor);
 
-const withdrawals = movements.filter(function (mov) {
-  return mov < 0;
-});
+const withdrawals = movements.filter((mov) => mov < 0);
 
 console.log(withdrawals);
