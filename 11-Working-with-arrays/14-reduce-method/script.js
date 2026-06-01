@@ -61,14 +61,64 @@ const inputLoanAmount = document.querySelector(".form__input--loan-amount");
 const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
+const displayMovement = function (movements) {
+  containerMovements.innerHTML = "";
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? "deposit" : "withdrawal";
+
+    const html = `
+    <div class="movements__row">
+      <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
+      <div class="movements__value">${mov}</div>
+    </div>
+  `;
+    containerMovements.insertAdjacentHTML("afterbegin", html);
+  });
+};
+
+displayMovement(account1.movements);
+
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance} EUR`;
+};
+calcDisplayBalance(account1.movements);
+
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.userName = acc.owner
+      .toLowerCase()
+      .split(" ")
+      .map((name) => name[0])
+      .join("");
+  });
+};
+
+createUsernames(accounts);
+
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 console.log(movements);
-
+// reduce method is a snowball or a boiler of the whole array. it makes the array into a single value. reduce method is little bit difference with filter and map method. its 1st parameter is Accumulator, then vale, index, array.
 // acc stands for Accumulator of the callback function and the other paramter 0 is the initial value of Accumulator of reduce method.
-const balance = movements.reduce(function (acc, curr, i, arr) {
-  console.log(`iteration ${i} : ${acc}`);
-  return acc + curr;
-}, 0);
+
+// const balance = movements.reduce(function (acc, curr, i, arr) {
+//   console.log(`iteration ${i} : ${acc}`);
+//   return acc + curr;
+// }, 0);
+
+const balance = movements.reduce((acc, curr) => acc + curr, 0);
 
 console.log(balance);
+
+let balance2 = 0;
+for (const mov of movements) balance2 += mov;
+console.log(balance2);
+
+// find the maximum value
+const max = movements.reduce((acc, mov) => {
+  if (acc > mov) return acc;
+  else return mov;
+}, movements[0]);
+
+console.log(max);
