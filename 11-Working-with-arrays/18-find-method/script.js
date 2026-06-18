@@ -149,12 +149,24 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 const eurToUsd = 1.1;
 
 // Pipeline
-const depositeUsd = movements
-  .filter((mov) => mov > 0)
-  // .map((mov) => mov * eurToUsd)
-  .map((mov, i, arr) => {
-    // console.log(arr);
-    return mov * eurToUsd;
-  })
-  .reduce((acc, mov) => acc + mov, 0);
-console.log(depositeUsd);
+// const depositeUsd = movements
+//   .filter((mov) => mov > 0)
+//   // .map((mov) => mov * eurToUsd)
+//   .map((mov, i, arr) => {
+//     // console.log(arr);
+//     return mov * eurToUsd;
+//   })
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(depositeUsd);
+
+// FIND method is similar like filter method like it takes the condition and check and return the boolean value. but there is a difference between them. that , filter method return an array which makes the condition true and make the array but find method only gives the first value that gives the true value of the condition is given.
+
+const firstWithdrawal = movements.find((move) => move < 0);
+console.log(movements);
+console.log(firstWithdrawal);
+
+console.log(accounts);
+const account = accounts.find((acc) => acc.owner === "Jessica Davis");
+console.log(account);
+
+for (const acc of accounts) if (acc.owner === "Jessica Davis") console.log(acc);
