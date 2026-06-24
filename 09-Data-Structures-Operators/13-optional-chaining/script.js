@@ -50,7 +50,7 @@ const restaurant = {
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
   // ES6 version
-  // if i need a object from outside, just write the similar name of the object.
+  // if i need an object from outside, just write the similar name of the object.
 
   openingHours,
 
