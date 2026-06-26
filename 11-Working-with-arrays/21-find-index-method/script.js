@@ -185,7 +185,7 @@ btnClose.addEventListener("click", function (e) {
     inputCloseUsername.value === currentAccount.userName &&
     Number(inputClosePin.value) === currentAccount.pin
   ) {
-    // Find index
+    // Find index == when it matches the condition first then returns the elements index . similar as find method.
     const index = accounts.findIndex(
       (acc) => acc.userName === inputCloseUsername.value,
     );
