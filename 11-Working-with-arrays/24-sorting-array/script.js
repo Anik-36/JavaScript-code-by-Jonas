@@ -333,9 +333,19 @@ console.log(owner);
 // this is sorting only string not number.
 // console.log(movements.sort());
 
-// return < 0 A , B
-// return > 0 B < A
+// return < 0 A , B (keep order)
+// return > 0 B < A (switch order)
 
+// Asscending
+// movements.sort((a, b) => {
+//   if (a > b) return 1;
+//   if (b > a) return -1;
+// });
+movements.sort((a, b) => a - b);
+
+console.log(movements);
+
+// Decending
 movements.sort((a, b) => {
   if (a > b) return 1;
   if (b > a) return -1;
