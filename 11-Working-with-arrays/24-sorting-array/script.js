@@ -327,3 +327,18 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 const owner = ["Jonas", "Adam", "Zach", "Marta"];
 console.log(owner.sort());
 console.log(owner);
+
+// Number
+
+// this is sorting only string not number.
+// console.log(movements.sort());
+
+// return < 0 A , B
+// return > 0 B < A
+
+movements.sort((a, b) => {
+  if (a > b) return 1;
+  if (b > a) return -1;
+});
+
+console.log(movements);
