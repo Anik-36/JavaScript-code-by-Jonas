@@ -61,9 +61,11 @@ const inputLoanAmount = document.querySelector(".form__input--loan-amount");
 const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
-const displayMovement = function (movements) {
+const displayMovement = function (movements, sorted = false) {
   containerMovements.innerHTML = "";
-  movements.forEach(function (mov, i) {
+
+  const movs = sorted ? movements.slice().sort((a, b) => a - b) : movements;
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? "deposit" : "withdrawal";
 
     const html = `
@@ -219,6 +221,14 @@ btnClose.addEventListener("click", function (e) {
   // Clear input fields
   inputCloseUsername.value = inputClosePin.value = "";
 });
+
+let sorted = false;
+btnSort.addEventListener("click", function (e) {
+  e.preventDefault();
+  displayMovement(currentAccount.movements, !sorted);
+  sorted = !sorted;
+});
+
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // reduce method is a snowball or a boiler of the whole array. it makes the array into a single value. reduce method is little bit difference with filter and map method. its 1st parameter is Accumulator, then vale, index, array.
@@ -346,9 +356,10 @@ movements.sort((a, b) => a - b);
 console.log(movements);
 
 // Decending
-movements.sort((a, b) => {
-  if (a > b) return 1;
-  if (b > a) return -1;
-});
+// movements.sort((a, b) => {
+//   if (a > b) return 1;
+//   if (b > a) return -1;
+// });
+movements.sort((a, b) => b - a);
 
 console.log(movements);
