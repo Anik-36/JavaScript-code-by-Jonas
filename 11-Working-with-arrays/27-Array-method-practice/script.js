@@ -364,40 +364,46 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // console.log(movements);
 
-const arr = [1, 2, 3, 4, 5, 6, 7];
-const arr1 = new Array(1, 2, 3, 4, 5, 6, 7);
+// const arr = [1, 2, 3, 4, 5, 6, 7];
+// const arr1 = new Array(1, 2, 3, 4, 5, 6, 7);
 
-// Empty array
+// // Empty array
 
-const x = new Array(7);
+// const x = new Array(7);
 
-// x.map(() => 5);
-// x.fill(4);
-x.fill(4, 3, 5);
+// // x.map(() => 5);
+// // x.fill(4);
+// x.fill(4, 3, 5);
 
-console.log(x);
+// console.log(x);
 
-arr.fill(23, 2, 6);
-console.log(arr);
+// arr.fill(23, 2, 6);
+// console.log(arr);
 
-// Array.from
-const y = Array.from({ length: 7 }, () => 1);
-console.log(y);
+// // Array.from
+// const y = Array.from({ length: 7 }, () => 1);
+// console.log(y);
 
-const z = Array.from({ length: 7 }, (_, i) => i + 1);
-console.log(z);
+// const z = Array.from({ length: 7 }, (_, i) => i + 1);
+// console.log(z);
 
-labelBalance.addEventListener("click", function () {
-  const movementsUI = Array.from(
-    document.querySelectorAll(".movements__value"),
-    (el) => Number(el.textContent.replace("€", "")),
-  );
-  console.log(movementsUI);
-  // const movementsUI2 = [...document.querySelectorAll(".movements__value")];
-  // console.log(movementsUI2);
-});
+// labelBalance.addEventListener("click", function () {
+//   const movementsUI = Array.from(
+//     document.querySelectorAll(".movements__value"),
+//     (el) => Number(el.textContent.replace("€", "")),
+//   );
+//   console.log(movementsUI);
+//   // const movementsUI2 = [...document.querySelectorAll(".movements__value")];
+//   // console.log(movementsUI2);
+// });
 
 /// Array Method Practice
+
+const bankDepositSum = accounts
+  .flatMap((acc) => acc.movements)
+  .filter((mov) => mov > 0)
+  .reduce((sum, cur) => sum + cur, 0);
+console.log(bankDepositSum);
 
 ///////////////////////////////////////
 // Coding Challenge #4
