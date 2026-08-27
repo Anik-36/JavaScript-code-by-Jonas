@@ -423,6 +423,19 @@ let a = 10;
 console.log(++a);
 console.log(a);
 
+// 3.
+const { deposit, withdrawal } = accounts
+  .flatMap((acc) => acc.movements)
+  .reduce(
+    (sums, cur) => {
+      cur > 0 ? (sums.deposit += cur) : (sums.withdrawal += cur);
+      return sums;
+    },
+    { deposit: 0, withdrawal: 0 },
+  );
+
+console.log(deposit, withdrawal);
+
 ///////////////////////////////////////
 // Coding Challenge #4
 
