@@ -399,73 +399,73 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /// Array Method Practice
 
-//1.
-const bankDepositSum = accounts
-  .flatMap((acc) => acc.movements)
-  .filter((mov) => mov > 0)
-  .reduce((sum, cur) => sum + cur, 0);
-console.log(bankDepositSum);
+// //1.
+// const bankDepositSum = accounts
+//   .flatMap((acc) => acc.movements)
+//   .filter((mov) => mov > 0)
+//   .reduce((sum, cur) => sum + cur, 0);
+// console.log(bankDepositSum);
 
-//2.
+// //2.
+// // const numDeposit1000 = accounts
+// //   .flatMap((acc) => acc.movements)
+// //   .filter((mov) => mov >= 1000).length;
+
 // const numDeposit1000 = accounts
 //   .flatMap((acc) => acc.movements)
-//   .filter((mov) => mov >= 1000).length;
+//   // .reduce((count, cur) => (cur >= 1000 ? count + 1 : count), 0);
+//   .reduce((count, cur) => (cur >= 1000 ? ++count : count), 0);
 
-const numDeposit1000 = accounts
-  .flatMap((acc) => acc.movements)
-  // .reduce((count, cur) => (cur >= 1000 ? count + 1 : count), 0);
-  .reduce((count, cur) => (cur >= 1000 ? ++count : count), 0);
+// console.log(numDeposit1000);
 
-console.log(numDeposit1000);
+// // Prefixed ++ operator
+// let a = 10;
+// console.log(++a);
+// console.log(a);
 
-// Prefixed ++ operator
-let a = 10;
-console.log(++a);
-console.log(a);
+// // 3.
+// const { deposit, withdrawal } = accounts
+//   .flatMap((acc) => acc.movements)
+//   .reduce(
+//     (sums, cur) => {
+//       // cur > 0 ? (sums.deposit += cur) : (sums.withdrawal += cur);
+//       sums[cur > 0 ? "deposit" : "withdrawal"] += cur;
+//       return sums;
+//     },
+//     { deposit: 0, withdrawal: 0 },
+//   );
 
-// 3.
-const { deposit, withdrawal } = accounts
-  .flatMap((acc) => acc.movements)
-  .reduce(
-    (sums, cur) => {
-      // cur > 0 ? (sums.deposit += cur) : (sums.withdrawal += cur);
-      sums[cur > 0 ? "deposit" : "withdrawal"] += cur;
-      return sums;
-    },
-    { deposit: 0, withdrawal: 0 },
-  );
+// console.log(deposit, withdrawal);
 
-console.log(deposit, withdrawal);
+// // 4.
+// const convertTitleCase = function (title) {
+//   const capitalize = (str) => str[0].toUpperCase() + str.slice(1);
 
-// 4.
-const convertTitleCase = function (title) {
-  const capitalize = (str) => str[0].toUpperCase() + str.slice(1);
+//   const exceptions = [
+//     "a",
+//     "an",
+//     "and",
+//     "the",
+//     "or",
+//     "but",
+//     "at",
+//     "in",
+//     "on",
+//     "with",
+//     "to",
+//   ];
 
-  const exceptions = [
-    "a",
-    "an",
-    "and",
-    "the",
-    "or",
-    "but",
-    "at",
-    "in",
-    "on",
-    "with",
-    "to",
-  ];
+//   const titleCase = title
+//     .toLowerCase()
+//     .split(" ")
+//     .map((word) => (exceptions.includes(word) ? word : capitalize(word)))
+//     .join(" ");
+//   return capitalize(titleCase);
+// };
 
-  const titleCase = title
-    .toLowerCase()
-    .split(" ")
-    .map((word) => (exceptions.includes(word) ? word : capitalize(word)))
-    .join(" ");
-  return capitalize(titleCase);
-};
-
-console.log(convertTitleCase("this is a nice title"));
-console.log(convertTitleCase("this is a LONG title but not too long"));
-console.log(convertTitleCase("and here is another title with an EXAMPLE"));
+// console.log(convertTitleCase("this is a nice title"));
+// console.log(convertTitleCase("this is a LONG title but not too long"));
+// console.log(convertTitleCase("and here is another title with an EXAMPLE"));
 
 ///////////////////////////////////////
 // Coding Challenge #4
@@ -609,3 +609,45 @@ const dogs = [
 
 GOOD LUCK 😀
 */
+
+const dogs = [
+  { weight: 22, curFood: 250, owners: ["Alice", "Bob"] },
+  { weight: 8, curFood: 200, owners: ["Matilda"] },
+  { weight: 13, curFood: 275, owners: ["Sarah", "John", "Leo"] },
+  { weight: 18, curFood: 244, owners: ["Joe"] },
+  { weight: 32, curFood: 340, owners: ["Michael"] },
+];
+
+for (const dog of dogs) {
+  dog.recFood = dog.weight ** 0.75 * 28;
+  console.log(dog);
+  if (dog.owners.includes("Sarah")) {
+    if (dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 0.11) {
+      console.log("Sarah's dog is eating okay amount");
+    } else if (dog.curFood < dog.recFood * 0.9) {
+      console.log("Sarah's dog is eating so little");
+    } else {
+      console.log("Sarah's dog is eating too much");
+    }
+  }
+}
+
+// let ownersTooMuch = new Array(),
+//   ownersTooLittle = new Array();
+// for (const dog of dogs) {
+//   if (dog.curFood > dog.recFood * 0.11) {
+//     ownersTooMuch.push(dog.owners);
+//   } else if (dog.curFood < dog.recFood * 0.9) {
+//     ownersTooLittle.push(dog.owners.flat());
+//   }
+// }
+
+const ownersTooMuch = dogs.flatMap((dog) => {
+  if (dog.curFood > dog.recFood * 0.11) return dog.owners;
+});
+const ownersTooLittle = dogs.flatMap((dog) => {
+  if (dog.curFood < dog.recFood * 0.9) return dog.owners;
+});
+
+console.log(ownersTooMuch);
+console.log(ownersTooLittle);
