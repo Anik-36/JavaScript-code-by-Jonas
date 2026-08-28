@@ -635,8 +635,6 @@ for (const dog of dogs) {
 let ownersTooMuch = new Array(),
   ownersTooLittle = new Array();
 for (const dog of dogs) {
-  console.log(dog.curFood, dog.recFood * 0.9);
-  console.log(dog.curFood, dog.recFood * 1.1);
   if (dog.curFood > dog.recFood * 1.1) {
     ownersTooMuch.push(dog.owners);
   } else if (dog.curFood < dog.recFood * 0.9) {
@@ -645,6 +643,8 @@ for (const dog of dogs) {
 }
 
 // const ownersTooMuch = dogs.flatMap((dog) => {
+// console.log(dog.curFood, dog.recFood * 0.9);
+// console.log(dog.curFood, dog.recFood * 1.1);
 //   if (dog.curFood > dog.recFood * 1.1) {
 //     return dog.owners;
 //   } else {
@@ -656,5 +656,8 @@ for (const dog of dogs) {
 //   else return [];
 // });
 
-console.log(ownersTooMuch.flat());
 console.log(ownersTooLittle.flat());
+console.log(ownersTooMuch.flat());
+
+console.log(`${ownersTooMuch.flat().join(" and ")}'s dogs eat too much`);
+console.log(`${ownersTooLittle.flat().join(" and ")}'s dogs eat too little`);
