@@ -622,7 +622,7 @@ for (const dog of dogs) {
   dog.recFood = dog.weight ** 0.75 * 28;
   console.log(dog);
   if (dog.owners.includes("Sarah")) {
-    if (dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 0.11) {
+    if (dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1) {
       console.log("Sarah's dog is eating okay amount");
     } else if (dog.curFood < dog.recFood * 0.9) {
       console.log("Sarah's dog is eating so little");
@@ -661,3 +661,12 @@ console.log(ownersTooMuch.flat());
 
 console.log(`${ownersTooMuch.flat().join(" and ")}'s dogs eat too much`);
 console.log(`${ownersTooLittle.flat().join(" and ")}'s dogs eat too little`);
+
+for (const dog of dogs) {
+  // console.log(dog.curFood, dog.recFood * 0.9, dog.recFood * 1.1);
+  if (dog.curFood >= dog.recFood * 0.9 && dog.curFood <= dog.recFood * 1.1) {
+    console.log(true);
+  } else {
+    console.log(false);
+  }
+}
