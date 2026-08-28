@@ -632,22 +632,29 @@ for (const dog of dogs) {
   }
 }
 
-// let ownersTooMuch = new Array(),
-//   ownersTooLittle = new Array();
-// for (const dog of dogs) {
-//   if (dog.curFood > dog.recFood * 0.11) {
-//     ownersTooMuch.push(dog.owners);
-//   } else if (dog.curFood < dog.recFood * 0.9) {
-//     ownersTooLittle.push(dog.owners.flat());
+let ownersTooMuch = new Array(),
+  ownersTooLittle = new Array();
+for (const dog of dogs) {
+  console.log(dog.curFood, dog.recFood * 0.9);
+  console.log(dog.curFood, dog.recFood * 1.1);
+  if (dog.curFood > dog.recFood * 1.1) {
+    ownersTooMuch.push(dog.owners);
+  } else if (dog.curFood < dog.recFood * 0.9) {
+    ownersTooLittle.push(dog.owners);
+  }
+}
+
+// const ownersTooMuch = dogs.flatMap((dog) => {
+//   if (dog.curFood > dog.recFood * 1.1) {
+//     return dog.owners;
+//   } else {
+//     return [];
 //   }
-// }
+// });
+// const ownersTooLittle = dogs.flatMap((dog) => {
+//   if (dog.curFood < dog.recFood * 0.9) return dog.owners;
+//   else return [];
+// });
 
-const ownersTooMuch = dogs.flatMap((dog) => {
-  if (dog.curFood > dog.recFood * 0.11) return dog.owners;
-});
-const ownersTooLittle = dogs.flatMap((dog) => {
-  if (dog.curFood < dog.recFood * 0.9) return dog.owners;
-});
-
-console.log(ownersTooMuch);
-console.log(ownersTooLittle);
+console.log(ownersTooMuch.flat());
+console.log(ownersTooLittle.flat());
