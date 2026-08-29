@@ -680,7 +680,7 @@ const dogs = [
 ];
 
 // 1.
-dogs.forEach((dog) => (dog.recFood = dog.weight ** 0.75 * 28));
+dogs.forEach((dog) => (dog.recFood = Math.trunc(dog.weight ** 0.75 * 28)));
 
 // 2.
 const dogSarah = dogs.find((dog) => dog.owners.includes("Sarah"));
@@ -706,3 +706,7 @@ console.log(ownersTooLittle);
 
 console.log(`${ownersTooMuch.join(" and ")}'s dogs eat too much!`);
 console.log(`${ownersTooLittle.join(" and ")}'s dogs eat too little!`);
+
+// 5.
+console.log(dogs.some((dog) => dog.curFood === dog.recFood));
+console.log(dogs);
