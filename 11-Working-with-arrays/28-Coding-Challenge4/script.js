@@ -709,4 +709,18 @@ console.log(`${ownersTooLittle.join(" and ")}'s dogs eat too little!`);
 
 // 5.
 console.log(dogs.some((dog) => dog.curFood === dog.recFood));
-console.log(dogs);
+
+// 6.
+const checkEatingOkay = (dog) =>
+  dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1;
+
+console.log(dogs.some(checkEatingOkay));
+
+// 7.
+console.log(dogs.filter(checkEatingOkay));
+
+// 8.
+// sort it with recommended food portion in an ascending order
+
+const dogsSort = dogs.slice().sort((a, b) => a.recFood - b.recFood);
+console.log(dogsSort);
