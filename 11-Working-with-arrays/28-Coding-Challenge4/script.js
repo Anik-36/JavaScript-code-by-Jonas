@@ -610,6 +610,67 @@ const dogs = [
 GOOD LUCK 😀
 */
 
+// const dogs = [
+//   { weight: 22, curFood: 250, owners: ["Alice", "Bob"] },
+//   { weight: 8, curFood: 200, owners: ["Matilda"] },
+//   { weight: 13, curFood: 275, owners: ["Sarah", "John", "Leo"] },
+//   { weight: 18, curFood: 244, owners: ["Joe"] },
+//   { weight: 32, curFood: 340, owners: ["Michael"] },
+// ];
+
+// for (const dog of dogs) {
+//   dog.recFood = dog.weight ** 0.75 * 28;
+//   console.log(dog);
+//   if (dog.owners.includes("Sarah")) {
+//     if (dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1) {
+//       console.log("Sarah's dog is eating okay amount");
+//     } else if (dog.curFood < dog.recFood * 0.9) {
+//       console.log("Sarah's dog is eating so little");
+//     } else {
+//       console.log("Sarah's dog is eating too much");
+//     }
+//   }
+// }
+
+// let ownersTooMuch = new Array(),
+//   ownersTooLittle = new Array();
+// for (const dog of dogs) {
+//   if (dog.curFood > dog.recFood * 1.1) {
+//     ownersTooMuch.push(dog.owners);
+//   } else if (dog.curFood < dog.recFood * 0.9) {
+//     ownersTooLittle.push(dog.owners);
+//   }
+// }
+
+// // const ownersTooMuch = dogs.flatMap((dog) => {
+// // console.log(dog.curFood, dog.recFood * 0.9);
+// // console.log(dog.curFood, dog.recFood * 1.1);
+// //   if (dog.curFood > dog.recFood * 1.1) {
+// //     return dog.owners;
+// //   } else {
+// //     return [];
+// //   }
+// // });
+// // const ownersTooLittle = dogs.flatMap((dog) => {
+// //   if (dog.curFood < dog.recFood * 0.9) return dog.owners;
+// //   else return [];
+// // });
+
+// console.log(ownersTooLittle.flat());
+// console.log(ownersTooMuch.flat());
+
+// console.log(`${ownersTooMuch.flat().join(" and ")}'s dogs eat too much`);
+// console.log(`${ownersTooLittle.flat().join(" and ")}'s dogs eat too little`);
+
+// for (const dog of dogs) {
+//   // console.log(dog.curFood, dog.recFood * 0.9, dog.recFood * 1.1);
+//   if (dog.curFood >= dog.recFood * 0.9 && dog.curFood <= dog.recFood * 1.1) {
+//     console.log(true);
+//   } else {
+//     console.log(false);
+//   }
+// }
+
 const dogs = [
   { weight: 22, curFood: 250, owners: ["Alice", "Bob"] },
   { weight: 8, curFood: 200, owners: ["Matilda"] },
@@ -618,55 +679,23 @@ const dogs = [
   { weight: 32, curFood: 340, owners: ["Michael"] },
 ];
 
-for (const dog of dogs) {
-  dog.recFood = dog.weight ** 0.75 * 28;
-  console.log(dog);
-  if (dog.owners.includes("Sarah")) {
-    if (dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1) {
-      console.log("Sarah's dog is eating okay amount");
-    } else if (dog.curFood < dog.recFood * 0.9) {
-      console.log("Sarah's dog is eating so little");
-    } else {
-      console.log("Sarah's dog is eating too much");
-    }
-  }
-}
+// 1.
+dogs.forEach((dog) => (dog.recFood = dog.weight ** 0.75 * 28));
 
-let ownersTooMuch = new Array(),
-  ownersTooLittle = new Array();
-for (const dog of dogs) {
-  if (dog.curFood > dog.recFood * 1.1) {
-    ownersTooMuch.push(dog.owners);
-  } else if (dog.curFood < dog.recFood * 0.9) {
-    ownersTooLittle.push(dog.owners);
-  }
-}
+// 2.
+const dogSarah = dogs.find((dog) => dog.owners.includes("Sarah"));
+console.log(dogSarah);
+console.log(
+  `Sarah's dog is eating too ${dogSarah.curFood > dogSarah.recFood ? "much" : "little"}`,
+);
 
-// const ownersTooMuch = dogs.flatMap((dog) => {
-// console.log(dog.curFood, dog.recFood * 0.9);
-// console.log(dog.curFood, dog.recFood * 1.1);
-//   if (dog.curFood > dog.recFood * 1.1) {
-//     return dog.owners;
-//   } else {
-//     return [];
-//   }
-// });
-// const ownersTooLittle = dogs.flatMap((dog) => {
-//   if (dog.curFood < dog.recFood * 0.9) return dog.owners;
-//   else return [];
-// });
+// 3.
+const ownersTooMuch = dogs
+  .filter((dog) => dog.curFood > dog.recFood)
+  .flatMap((dog) => dog.owners);
+console.log(ownersTooMuch);
 
-console.log(ownersTooLittle.flat());
-console.log(ownersTooMuch.flat());
-
-console.log(`${ownersTooMuch.flat().join(" and ")}'s dogs eat too much`);
-console.log(`${ownersTooLittle.flat().join(" and ")}'s dogs eat too little`);
-
-for (const dog of dogs) {
-  // console.log(dog.curFood, dog.recFood * 0.9, dog.recFood * 1.1);
-  if (dog.curFood >= dog.recFood * 0.9 && dog.curFood <= dog.recFood * 1.1) {
-    console.log(true);
-  } else {
-    console.log(false);
-  }
-}
+const ownersTooLittle = dogs
+  .filter((dog) => dog.curFood < dog.recFood)
+  .flatMap((dog) => dog.owners);
+console.log(ownersTooLittle);
