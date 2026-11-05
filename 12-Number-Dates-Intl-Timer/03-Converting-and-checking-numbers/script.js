@@ -265,3 +265,8 @@ console.log(+'23');
 console.log(Number.parseInt('30px', 10));
 // always start with the number, it is called advance type-coersion, and we can use bit also , what we want to work with. its called regex
 console.log(Number.parseInt('e23', 10));
+
+console.log(Number.parseInt('  384.29em'));
+console.log(Number.parseFloat('  384.29em'));
+// parseFloat,parseInt is a global function, so if we use it without calling Number object, it would work.but using Number object is more appreciating
+console.log(parseFloat('  384.29em'));
