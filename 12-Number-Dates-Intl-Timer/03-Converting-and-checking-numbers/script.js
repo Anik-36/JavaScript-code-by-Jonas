@@ -271,7 +271,7 @@ console.log(Number.parseFloat('  384.29em'));
 // parseFloat,parseInt is a global function, so if we use it without calling Number object, it would work.but using Number object is more appreciating
 console.log(parseFloat('  384.29em'));
 
-// Checking if the value is NaN
+// Checking if the value is NaN, if a value can be converted into number then it gives false, otherwise true.
 console.log(Number.isNaN(20));
 console.log(Number.isNaN('20'));
 console.log(Number.isNaN(+'20x'));
