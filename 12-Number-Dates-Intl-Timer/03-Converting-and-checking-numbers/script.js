@@ -262,6 +262,6 @@ console.log(Number('23'));
 console.log(+'23');
 
 // Parsing
-console.log(Number.parseInt('30px'));
-// always start with the number, it is called advance type-coersion
-console.log(Number.parseInt('e23'));
+console.log(Number.parseInt('30px', 10));
+// always start with the number, it is called advance type-coersion, and we can use bit also , what we want to work with. its called regex
+console.log(Number.parseInt('e23', 10));
