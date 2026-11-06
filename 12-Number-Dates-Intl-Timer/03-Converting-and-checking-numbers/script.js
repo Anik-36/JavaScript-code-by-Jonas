@@ -286,3 +286,4 @@ console.log(Number.isFinite(23 / 0));
 console.log(Number.isInteger(32));
 console.log(Number.isInteger(32.0));
 console.log(Number.isInteger(23 / 0));
+console.log('hi');
